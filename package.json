@@ -1,0 +1,39 @@
+{
+  "name": "es6-demo",
+  "version": "1.0.0",
+  "description": "node version 12.14.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p --colors",
+    "serve": "webpack-dev-server --open --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KINGMJ/es6-demo.git"
+  },
+  "keywords": [
+    "es6",
+    "demo",
+    "js"
+  ],
+  "author": "jerry.mei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KINGMJ/es6-demo/issues"
+  },
+  "homepage": "https://github.com/KINGMJ/es6-demo#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "html-webpack-plugin": "^4.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/runtime": "^7.9.2",
+    "babel-loader": "^8.0.0-beta.0"
+  }
+}
