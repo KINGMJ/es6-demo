@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/KINGMJ/es6-demo#readme",
   "devDependencies": {
+    "@babel/plugin-proposal-pipeline-operator": "^7.10.1",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "html-webpack-plugin": "^4.2.0",
     "webpack": "^4.43.0",
