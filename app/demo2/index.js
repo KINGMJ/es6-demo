@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 // 1. pipeline 管道操作
 const capitalize = (input) => input[0].toUpperCase() + input.substring(1)
 const removeSpaces = (input) => input.trim()
@@ -38,14 +40,12 @@ console.group("使用科里化");
 console.log(withPipe2);
 console.groupEnd();
 
+//使用lodash来组合函数
+const lodashFlow = _.flow([removeSpaces,capitalize,repeat2(4)])
 
-
-
-
-
-
-
-
+console.group("使用lodash的flow来组合函数");
+console.log(lodashFlow("  i am gods  "));
+console.groupEnd();
 
 // 3. String.trimStart() & String.trimEnd()
 const greeting = '  Hello World!  '
