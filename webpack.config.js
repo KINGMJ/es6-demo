@@ -5,7 +5,8 @@ const config = {
     //入口文件
     entry: {
         demo1: './app/demo1/index.js',
-        demo2: './app/demo2/index.js'
+        demo2: './app/demo2/index.js',
+        demo3: './app/demo3/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
