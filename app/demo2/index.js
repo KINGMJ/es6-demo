@@ -15,12 +15,13 @@ const withPipe = '  i am gods  '
   |> capitalize
   |> (str => repeat(str, 2))
 
+console.group("使用管道操作符")
 console.log(withPipe)
+console.groupEnd()
 
 
 // 另一种写法
 const repeat2 = times => input => input.repeat(times)
-
 //等效于
 // const repeat2 = function repeat2(times) {
 //   return function (input) {
@@ -33,11 +34,22 @@ const withPipe2 = '  i am gods  '
   |> capitalize
   |> repeat2(4)
 
-console.log(withPipe2)
+console.group("使用科里化");
+console.log(withPipe2);
+console.groupEnd();
 
 
 
-// 2. String.trimStart() & String.trimEnd()
+
+
+
+
+
+
+
+// 3. String.trimStart() & String.trimEnd()
 const greeting = '  Hello World!  '
+console.group('trimStart和trimEnd')
 console.log(greeting.trimEnd())
 console.log(greeting.trimStart())
+console.groupEnd()
