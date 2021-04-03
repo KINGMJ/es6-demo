@@ -1,6 +1,4 @@
-test2();
-
-
+test3();
 
 function test1() {
     const object1 = {};
@@ -21,9 +19,9 @@ function test2() {
     let arr = [1, 2, 3]
     observe(arr)
     console.log(arr)
-    //arr[1] = 4;
-    //arr.splice(3, 0, 4)
-    //arr.push(4)
+    arr[1] = 4;
+    arr.splice(3, 0, 4)
+    arr.push(4)
     arr.splice(6)
 }
 
