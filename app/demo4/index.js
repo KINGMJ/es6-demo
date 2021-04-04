@@ -46,7 +46,6 @@ console.log(sumAges)
  * 6. 柯里化（Currying）和函数组合（Compose）
  * 柯里化：f(a,b,c) -> f(a)(b)(c)
  */
-
 const add = function (x) {
   return function (y) {
     return x + y
@@ -54,3 +53,12 @@ const add = function (x) {
 }
 const sum = add(1)(10)
 console.log(sum)
+
+//函数组合，目的是让多个函数组合成一个函数。下面这段代码传入f和g两个函数，先执行g(x)，把g(x)的结果作为f函数的参数
+const compose = (f, g) => x => f(g(x))
+const f = x => x + 1
+const g = x => x * 2
+const fg = compose(f, g)
+console.log(fg(1)) // 1*2+1
+
+//柯里化中要把操作的数据放到最后，推荐使用 Ramda 库
