@@ -43,7 +43,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      chunks: ["demo4"],
+      chunks: ["demo5"],
     }),
   ],
 };

@@ -129,7 +129,3 @@ const full = ({ first, last } = person) => {
 console.log(full(person))
 console.groupEnd()
 
-console.group('------------------------------------------------------------------')
-//memorized函数，缓存结果
-
-console.groupEnd()
