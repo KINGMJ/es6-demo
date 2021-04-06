@@ -62,3 +62,74 @@ const fg = compose(f, g)
 console.log(fg(1)) // 1*2+1
 
 //柯里化中要把操作的数据放到最后，推荐使用 Ramda 库
+
+console.group('------------------------------------------------------------------')
+
+const fn = () => {}
+console.log(typeof fn)
+
+//高阶函数
+const crazy = () => {
+  return String
+}
+console.log(crazy()('Hello'))
+console.groupEnd()
+
+console.group('-----------------------------实现foreach函数-------------------------------------')
+const forEach = (array, fn) => {
+  for (let i = 0; i < array.length; i++) {
+    fn(array[i])
+  }
+}
+forEach([1, 2, 3], i => {
+  console.log(i)
+})
+console.groupEnd()
+
+console.group('-----------------------------闭包-------------------------------------')
+const fn1 = arg => {
+  let outer = 'Visible'
+  let innerFn = () => {
+    console.log(outer)
+    console.log(arg)
+  }
+  return innerFn
+}
+
+const closureFn = fn1(5)
+closureFn()
+console.groupEnd()
+
+console.group('-----------------------------真实的高阶函数-------------------------------------')
+const tap = value => fn => (typeof fn === 'function' && fn(value), console.log(value))
+tap('fun')(it => console.log('value is ', it))
+
+const arr = [1, 2, 3].map(a => a * a)
+console.log(arr)
+
+const arr2 = [1, 2, 3].map((a, b, c) => {
+  console.log(a) //当前处理的元素
+  console.log(b) //当前元素的索引值
+  console.log(c) //数组本身
+})
+
+//unary 函数，最多接受一个参数的函数，忽略多余的参数
+const unary = fn => (fn.length == 1 ? fn : arg => fn(arg))
+const arr3 = ['1', '2', '3'].map(unary(parseInt))
+console.log(arr3)
+console.groupEnd()
+
+//箭头函数可以与变量解构结合使用
+console.group('------------------------------------------------------------------')
+const person = { first: 'jack', last: 'ma' }
+const full = ({ first, last } = person) => {
+  console.log(person)
+  return first + ' ' + last
+}
+console.log(full(person))
+console.groupEnd()
+
+console.group('------------------------------------------------------------------')
+//memorized函数，缓存结果
+
+console.groupEnd()
