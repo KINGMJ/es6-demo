@@ -93,5 +93,95 @@ const map = (array, fn) => {
 const newArr = map([1, 2, 3], x => x * x)
 console.log(newArr)
 
+// const filter = (array, fn) => {
+//   const results = []
+//   for (const value of array) {
+//     fn(value) ? results.push(value) : undefined
+//   }
+//   return results
+// }
 
+//柯里化写法
+const filter = fn => {
+  return array => {
+    const results = []
+    for (const value of array) {
+      fn(value) ? results.push(value) : undefined
+    }
+    return results
+  }
+}
+const filteredArr = [1, 2, 3, 4, 5] |> filter(o => o & 1)
+console.log(filteredArr)
+
+//concatAll连接操作
+const concatAll = array => {
+  let results = []
+  for (const value of array) {
+    results.push.apply(results, value)
+  }
+  return results
+}
+
+const addressBook = [
+  {
+    name: 'beginners',
+    bookDetails: [
+      {
+        id: 1,
+        title: 'C#',
+      },
+      {
+        id: 2,
+        title: 'Java',
+      },
+    ],
+  },
+  {
+    name: 'pro',
+    bookDetails: [
+      {
+        id: 3,
+        title: 'Pro Vue',
+      },
+      {
+        id: 4,
+        title: 'Pro React',
+      },
+    ],
+  },
+]
+
+const book = map(addressBook, book => {
+  return book.bookDetails
+})
+console.log(book)
+console.log(concatAll(book))
+
+const reduce = (array, fn) => {
+  let accumlator = 0
+  for (const value of array) {
+    accumlator = fn(accumlator, value)
+  }
+  return [accumlator]
+}
+
+const sumArr = reduce([1, 2, 3], (acc, val) => acc + val)
+console.log(sumArr)
+
+
+
+
+
+console.groupEnd()
+
+console.group('-----------------------------其他的一些操作-------------------------------------')
+//使用 & 执行两个函数
+function a() {
+  console.log('a')
+}
+function b() {
+  console.log('b')
+}
+a() & b()
 console.groupEnd()
