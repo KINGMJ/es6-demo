@@ -169,9 +169,23 @@ const reduce = (array, fn) => {
 const sumArr = reduce([1, 2, 3], (acc, val) => acc + val)
 console.log(sumArr)
 
+//可以接收初始值的reduce
+const reduce1 = (array, fn, initialValue) => {
+  let accumlator = initialValue !== undefined ? initialValue : array[0]
+  if (initialValue === undefined) {
+    for (let i = i; i < array.length; i++) {
+      accumlator = fn(accumlator, array[i])
+    }
+  } else {
+    for (const value of array) {
+      accumlator = fn(accumlator, value)
+    }
+  }
+  return [accumlator]
+}
 
-
-
+const multiplyArr = reduce1([1, 2, 3, 4], (acc, val) => acc * val, 1)
+console.log(multiplyArr)
 
 console.groupEnd()
 
