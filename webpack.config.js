@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = {
   //入口文件
   entry: {
+    index: './app/index.js',
     demo1: './app/demo1/index.js',
     demo2: './app/demo2/index.js',
     demo3: './app/demo3/index.js',
@@ -11,6 +12,7 @@ const config = {
     demo5: './app/demo5/index.js',
     demo6: './app/demo6/index.js',
     demo7: './app/demo7/index.js',
+    demo8: './app/demo8/index.js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -39,7 +41,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      chunks: ['demo7'],
+      chunks: ['index'],
     }),
   ],
 }
