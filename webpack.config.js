@@ -14,6 +14,7 @@ const config = {
     demo7: './app/demo7/index.js',
     demo8: './app/demo8/index.js',
     demo9: './app/demo9/index.js',
+    demo10: './app/demo10/index.js',
   },
   devtool: 'inline-source-map',
   devServer: {
