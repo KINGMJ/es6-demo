@@ -157,3 +157,29 @@ const doublePositiveNumbers = numbers2.reduce((prev, current) => {
 console.group('reduce test2')
 console.log(doublePositiveNumbers)
 console.groupEnd()
+
+import _ from 'lodash'
+const arr11 = [
+  { id: 1, name: 'jack', playlist: [{ id: 1, name: '歌单1' }] },
+  { id: 2, name: 'rose', playlist: [{ id: 1, name: '歌单1' }] },
+  { id: 3, name: 'mike', playlist: [{ id: 1, name: '歌单1' }] },
+]
+
+const arr2 = [
+  { id: 1, name: 'jack' },
+  { id: 2, name: 'rose' },
+  { id: 4, name: 'haah' },
+]
+
+for (let item of arr2) {
+  const index = _.findIndex(arr11, o => {
+    return o.id == item.id
+  })
+  if (!!~index) {
+    arr11[index].playlist.push({ id: 2, name: '歌单2' })
+  } else {
+    arr11.push({ ...item, playlist: { id: 2, name: '歌单2' } })
+  }
+}
+
+console.log(arr11)
