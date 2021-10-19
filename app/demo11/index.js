@@ -1,15 +1,15 @@
 /**
  * var 变量提升
  */
-myName = 'Chris'
+// myName = 'Chris'
 
-function logName() {
-  console.log(myName)
-}
+// function logName() {
+//   console.log(myName)
+// }
 
-logName()
+// logName()
 
-let myName
+// var myName
 
 // -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
 
@@ -17,33 +17,78 @@ let myName
  * 函数提升，只会提升函数声明，而不会提升函数表达式
  */
 
-f()
-// fn()
+// f()
+// // fn()
 
-/**
- * 函数表达式
- */
-var fn = function () {
-  console.log(1)
-}
+// /**
+//  * 函数表达式
+//  */
+// var fn = function () {
+//   console.log(1)
+// }
 
-/**
- * 函数声明
- */
-function f() {
-  console.log(0)
-}
+// /**
+//  * 函数声明
+//  */
+// function f() {
+//   console.log(0)
+// }
 
 // -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
 
 /**
  * var 全局变量，这里输出的是 10 而不是 6；如果用 let 就是 6
  */
-var a = []
-for (var i = 0; i < 10; i++) {
-  a[i] = function () {
-    console.log(i)
-  }
-}
-a[6]()
-// 10
+
+// var a = []
+// for (var i = 0; i < 10; i++) {
+//   a[i] = function () {
+//     console.log(i)
+//   }
+// }
+// a[6]()
+// // 10
+
+// -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
+
+// if (true) {
+//   let y = 5
+// }
+// console.log(y)
+
+// index.js:56 Uncaught ReferenceError: y is not defined
+
+// -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
+
+// console.log(x === undefined) // true
+// var x = 3
+// console.log(x)
+
+// -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
+
+// var name = 'xiuyan' // 全局作用域内的变量
+
+// // 函数作用域
+// function showName() {
+//   console.log(name)
+// }
+
+// // 块作用域
+// {
+//   name = 'BigBear'
+//   let age = 40
+// }
+
+// showName() // 输出 'BigBear'
+
+// console.log(age) // 报错
+
+// -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
+
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(function () {
+//     console.log(i)
+//   }, 1000)
+// }
+
+// console.log(i)
