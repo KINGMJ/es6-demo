@@ -1,7 +1,3 @@
-/**
- * map
- */
-
 const kvArray = [
   { key: 1, value: 10 },
   { key: 2, value: 20 },
@@ -9,7 +5,9 @@ const kvArray = [
 ]
 
 /**
- * callback 函数会被自动传入三个参数：数组元素，元素索引，原数组本身。
+ * map((currentValue[, index[, array]])=>{ // Return element for new_array })
+ * 1. 用数组每个元素调用 callback 的值创建一个新数组
+ * 2. callback 的参数：currentValue 当前正在处理的元素；index 当前元素的索引；array 原数组
  */
 const test1 = kvArray.map(item => {
   console.group('test1')
@@ -96,12 +94,11 @@ console.groupEnd()
 // -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
 
 /**
- * filter
+ * filter(callback(element[, index[, array]])
+ * 对数组进行过滤，返回过滤后的数组；如果所有的元素都返回false，返回一个空数组
  */
 
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
-
-// callback 传入参数：element、index、array、thisArg
 const filterTest1 = words.filter(word => word.length > 6)
 console.group('filter test1')
 console.log(filterTest1)
@@ -118,11 +115,13 @@ console.log(filterTest2)
 // -------------- (ﾉ･ω･)ﾉﾞ(○’ω’○)(´・ω・`) (｡◕ˇ∀ˇ◕）(●'◡'●)ﾉ♥ <(▰˘◡˘▰)> ｡◕‿◕｡ (｡・`ω´･) (♥◠‿◠)ﾉ ------------------
 
 /**
- * reduce
+ * reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
+ * 1. 对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+ * 2. reducer参数：accumulator 累加器；currentValue 当前值；index 当前索引；array 原数组
+ * 3. initialValue 作为第一次调用 reducer 函数时第一个参数的值。如果没有提供值，则将使用数组中的第一个元素
+ * 4. 在没有初始值的空数组上调用 reduce 将报错
  */
 const array1 = [1, 2, 3, 4]
-
-// reduce callback 的参数：previousValue, currentValue, currentIndex, array
 
 /**
  * Callback function
@@ -157,29 +156,3 @@ const doublePositiveNumbers = numbers2.reduce((prev, current) => {
 console.group('reduce test2')
 console.log(doublePositiveNumbers)
 console.groupEnd()
-
-import _ from 'lodash'
-const arr11 = [
-  { id: 1, name: 'jack', playlist: [{ id: 1, name: '歌单1' }] },
-  { id: 2, name: 'rose', playlist: [{ id: 1, name: '歌单1' }] },
-  { id: 3, name: 'mike', playlist: [{ id: 1, name: '歌单1' }] },
-]
-
-const arr2 = [
-  { id: 1, name: 'jack' },
-  { id: 2, name: 'rose' },
-  { id: 4, name: 'haah' },
-]
-
-for (let item of arr2) {
-  const index = _.findIndex(arr11, o => {
-    return o.id == item.id
-  })
-  if (!!~index) {
-    arr11[index].playlist.push({ id: 2, name: '歌单2' })
-  } else {
-    arr11.push({ ...item, playlist: { id: 2, name: '歌单2' } })
-  }
-}
-
-console.log(arr11)
