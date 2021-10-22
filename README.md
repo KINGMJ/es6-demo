@@ -16,3 +16,5 @@ es6 实现的一些 demo 示例
 - demo10: map/filter/reduce
 - demo11: 变量提升与函数作用域
 - demo12: object 属性
+- demo13: 函数和闭包
+- demo14: call、bind 与 apply
