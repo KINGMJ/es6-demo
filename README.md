@@ -23,3 +23,4 @@ node app/demo15/index.js
 - demo13: 函数和闭包
 - demo14: call、bind 与 apply
 - demo15: 块级作用域
+- demo16: 头等函数

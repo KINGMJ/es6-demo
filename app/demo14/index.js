@@ -1,3 +1,12 @@
+function Person(name) {
+  this.name = name
+  console.log(this)
+}
+
+// Person {name: 'jack'}，构造函数的this会绑定到new出来的这个对象上
+const pereson = new Person('jack')
+
+
 /**
  * 文档的描述比较晦涩，这个例子就很好说明了call的作用
  * 它的第一个参数是要调用函数的母对象，它是调用上下文，在函数体内通过 this 获取对它的引用。
@@ -7,7 +16,10 @@ function a() {
   console.log(this)
 }
 
+a.apply('123') // String{'123'}
 a.call('123')
+
+// ----------- (●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●) ------------
 
 /**
  * 利用 apply 完成 rest 参数类似的作用
@@ -17,8 +29,10 @@ const numbers = [5, 6, 2, 3]
 const max = Math.max(...numbers)
 const max2 = Math.max.apply(null, numbers)
 
-console.log(max)
-console.log(max2)
+console.log(max) // 6
+console.log(max2) // 6
+
+// ----------- (●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●) ------------
 
 /**
  * call 方法的运用
@@ -33,7 +47,7 @@ function Food(name, price) {
   this.category = 'food'
 }
 
-console.log(new Food('cheese', 5).name)
+console.log(new Food('cheese', 5).name) // sheese
 
 /**
  * 在非严格模式下，未传入参数或者第一个参数传入null、undefined都会被全局对象替代
@@ -61,14 +75,25 @@ const module = {
   },
 }
 
-console.group('bind')
+console.group('--------bind---------')
+
+// this 是由调用时的位置决定的
 
 // 直接调用，this 为 moudle 本身，输出的是 42
 console.log(module.getX())
 
+const module2 = {
+  x: 12,
+  getX: module.getX,
+}
+
+// this 为 module2，输出的是 12
+console.log(module2.getX())
+
 // 将 module.getX 赋值给一个对象，作用域变成全局作用域。所以这里 this 是一个 Window 对象，结果是 undefined
 const unboundGetX = module.getX
-console.log(unboundGetX())
+console.log(unboundGetX()) 
+
 
 const boundGetX = unboundGetX.bind(module)
 // 这里新函数 boundGetX 的 this 被指定为 bind 的第一个参数，也就是 module
@@ -78,10 +103,10 @@ console.groupEnd()
 
 // ----------- (●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●) ------------
 
+
 /**
  * bind 应用：偏函数（固定一些参数，产生更少参数的函数）
  */
-
 const sum = (a, b) => a + b
 const addOne = sum.bind(null, 1)
 console.log(addOne(2))

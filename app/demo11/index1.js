@@ -40,12 +40,32 @@ console.groupEnd()
 
 console.group('--------demo3---------')
 
-for (var i = 0; i < 5; i++) {
-  setTimeout(function () {
-    console.log(i) // 5 5 5 5 5
-  }, 1000)
-}
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(function () {
+//     console.log(i) // 5 5 5 5 5
+//   }, 1000)
+// }
 
-console.log(i) // 5 
+// console.log(i) // 5
+
+// console.groupEnd()
+
+// ----------- (●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●)(●'◡'●) ------------
+
+/**
+ * 如何正确的在setTimeout中顺序输出，利用setTimeout的第三个参数把i传递
+ */
+
+console.group('--------demo4---------')
+
+for (var i = 0; i < 5; i++) {
+  setTimeout(
+    function (j) {
+      console.log('J的值：' + j)
+    },
+    1000,
+    i
+  )
+}
 
 console.groupEnd()
