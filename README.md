@@ -1,6 +1,10 @@
 # es6-demo
 
-es6 实现的一些 demo 示例
+es6 实现的一些 demo 示例，需要注意一些demo为了验证 ES6 的特性，需要在 node 环境里运行，比如：
+
+```
+node app/demo15/index.js
+```
 
 > node version 12.14.0
 
@@ -18,3 +22,4 @@ es6 实现的一些 demo 示例
 - demo12: object 属性
 - demo13: 函数和闭包
 - demo14: call、bind 与 apply
+- demo15: 块级作用域
