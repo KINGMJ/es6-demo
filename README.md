@@ -25,3 +25,4 @@ node app/demo15/index.js
 - demo15: 块级作用域
 - demo16: 头等函数
 - demo17: 对象
+- demo18: 继承与原型链

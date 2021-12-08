@@ -61,6 +61,7 @@ console.log(Object.getOwnPropertyNames(person)) // ['name', 'age', 'city', 'sex'
 const obj = {
   property1: 'value1',
   2: 'value2',
+  // 可计算属性名
   ['property' + 3]: 'value3',
   [4]: 'value4',
   'property n': 'value n',
@@ -92,3 +93,6 @@ animal1.displayType() // Output:Invertebrates
 const fish = Object.create(Animal)
 fish.type = 'Fishes'
 fish.displayType() // Output:Fishes
+
+
+
