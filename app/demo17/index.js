@@ -87,12 +87,13 @@ const Animal = {
 
 // 创建一种新的动物——animal1
 const animal1 = Object.create(Animal)
+
+console.log(animal1) // {}
+//实际创建到 [[Prototype]] 上了
+
 animal1.displayType() // Output:Invertebrates
 
 // 创建一种新的动物——Fishes
 const fish = Object.create(Animal)
 fish.type = 'Fishes'
 fish.displayType() // Output:Fishes
-
-
-
