@@ -23,7 +23,9 @@ const config = {
     demo16: './app/demo16/index.js',
     demo17: './app/demo17/index.js',
     demo18: './app/demo18/index.js',
-    demo19: './app/demo19/index.js',
+    demo19: './app/demo19/index1.js',
+    demo20: './app/demo20/index.js',
+    demo21: './app/demo21/index.js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -48,6 +50,7 @@ const config = {
           },
         },
       },
+      { test: /\.hbs$/, loader: 'handlebars-loader' },
     ],
   },
   plugins: [

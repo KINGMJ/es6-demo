@@ -1,6 +1,6 @@
 # es6-demo
 
-es6 实现的一些 demo 示例，需要注意一些demo为了验证 ES6 的特性，需要在 node 环境里运行，比如：
+es6 实现的一些 demo 示例，需要注意一些 demo 为了验证 ES6 的特性，需要在 node 环境里运行，比如：
 
 ```
 node app/demo15/index.js
@@ -26,4 +26,5 @@ node app/demo15/index.js
 - demo16: 头等函数
 - demo17: 对象
 - demo18: 继承与原型链
-- demo19: 
+- demo19: 异步编程：Promise/await/async
+- demo20: setTimeout 与 setInterval
