@@ -28,3 +28,4 @@ node app/demo15/index.js
 - demo18: 继承与原型链
 - demo19: 异步编程：Promise/await/async
 - demo20: setTimeout 与 setInterval
+- demo21: fetch API
